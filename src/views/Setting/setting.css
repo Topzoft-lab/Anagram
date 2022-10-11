@@ -1,0 +1,111 @@
+.game-setting {
+  /* display: none; */
+  background-color: #e7e7de;
+  box-shadow: #303841 0px 5px 15px;
+  border-radius: 5px;
+  padding: 25px 50px;
+  margin-right: 100px;
+}
+
+.setting {
+  text-align: center;
+  color: #393e46;
+  font-size: 23px;
+  margin-bottom: 40px;
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px #393e46;
+}
+.name {
+  color: #856c8b;
+  font-size: 18px;
+}
+.player-input {
+  border-bottom: 2px solid #d7d7d7;
+  padding-bottom: 10px;
+}
+.player-name {
+  padding: 15px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  border-bottom: 2px solid #856c8b;
+  background-color: #f6f6f6;
+}
+
+.player-name:focus {
+  color: #5e366a;
+  outline: none;
+  border-bottom: 3px solid #524a79;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio-group:not(:last-child) {
+  padding-bottom: 30px;
+  border-bottom: 2px solid #d7d7d7;
+}
+
+.radio-label {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: #492540;
+}
+.arrow {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 25px;
+  color: #393e46;
+  cursor: pointer;
+}
+
+.fa-gear {
+  font-size: 20px;
+  padding-right: 10px;
+  color: #b7b7b7;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  background-color: #fafafa;
+  border-radius: 100%;
+  cursor: pointer;
+  outline: #524a79;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type="checkbox"]:after {
+  position: relative;
+  left: -11px;
+  bottom: 3px;
+  font-family: monospace;
+  font-weight: 200;
+  font-size: 60px;
+  content: "\00B7";
+  color: #524a79;
+  display: none;
+}
+
+input[type="checkbox"]:hover {
+  background-color: #f6f6f6;
+  border: 1px solid #524a79;
+}
+
+input[type="checkbox"]:checked {
+  border: #524a79;
+  border: 2px solid #524a79;
+}
+
+input[type="checkbox"]:checked::after {
+  display: block;
+}
