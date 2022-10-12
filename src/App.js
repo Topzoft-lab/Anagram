@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import GameMenu from "./views/GameMenu";
 import Home from "./views/Home";
 import LeaderBoard from "./views/LeaderBoard";
 import GameSettings from "./views/Setting";
@@ -28,6 +29,14 @@ function App() {
           element={
             <div className="main">
               <LeaderBoard />
+            </div>
+          }
+        />
+        <Route
+          path="/menu"
+          element={
+            <div className="main">
+              <GameMenu />
             </div>
           }
         />
