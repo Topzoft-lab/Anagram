@@ -1,7 +1,11 @@
 import "./home.css";
 import { Link } from "react-router-dom";
+import GameContext from "../GameContext";
+import { useContext } from "react";
 
 const Home = () => {
+  const {game}= useContext(GameContext);
+  
   return (
     <div className="container">
       <div className="logo">
@@ -18,8 +22,8 @@ const Home = () => {
         </li>
         <li className="innerList">
           {" "}
-          <Link to="/score" className="game-list">
-            Continue Game
+          <Link to="/menu" className="game-list">
+            Continue
           </Link>
         </li>
         <li className="innerList">
