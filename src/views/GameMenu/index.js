@@ -17,6 +17,7 @@ const GameMenu = () => {
       style : "alert-none",
       message: ""});
 
+  setTimeout(()=>setAlert({style:"alert-none",message:""}),4000);
   const processGame = () => {
     let word ;
     
@@ -44,11 +45,29 @@ const GameMenu = () => {
   
 
     //Creating random letters
-    let random2 =word[ Math.floor(Math.random()*word.length)].split("");
-    let random3 = word[Math.floor(Math.random()*word.length)].split("");
+    let random2, random3, random4, random5;
+
+    if(game.lvl === 'Easy') {
+      random2 =word[ Math.floor(Math.random()*word.length)].split("");
+      random3 = word[Math.floor(Math.random()*word.length)].split("");
+      random4 = word[Math.floor(Math.random()*word.length)].split("");
+      random5 = [];
+    } else if (game.lvl === 'Hard') {
+      random2 =word[ Math.floor(Math.random()*word.length)].split("");
+      random3 = word[Math.floor(Math.random()*word.length)].split("");
+      random4 = word[Math.floor(Math.random()*word.length)].split("");
+      random5 = [];
+    } else {
+      random2 =word[ Math.floor(Math.random()*word.length)].split("");
+      random3 = word[Math.floor(Math.random()*word.length)].split("");
+      random4 = word[Math.floor(Math.random()*word.length)].split("");
+      random5 = word[Math.floor(Math.random()*word.length)].split("");
+    }
+
+     
 
     //Turning them into one array
-    let randomLetters = [...random2, ...random3, ...guessWord];
+    let randomLetters = [...random2, ...random3, ...random4, ...random5, ...guessWord];
 
     //Shuffle the array
     let shuffledArr = shuffle(randomLetters)
@@ -75,15 +94,17 @@ const GameMenu = () => {
       }
       //To display message
       setAlert({
-        style: "alert",
+        style: "alert-success",
         message: "Correct. Good Job!"
       })
+
+      
 
 
     } else {
       lives.pop();
       setAlert({
-        style: "alert",
+        style: "alert-error",
         message: "Wrong guess. Try again!"
       });
     }
@@ -105,28 +126,24 @@ const GameMenu = () => {
 
       <div className="header">
         <div className="scores">
-          <h4>
-            Score
-            <span className="value"> {game.score} </span>
-          </h4>
+          <h4 className="top">Score</h4>
+          <span className="value"> {game.score} </span>
         </div>
         <div className="level">
-          <h4>
+          <h4 className="top">
             {game.lvl}
           </h4>
         </div>
         <div className="player">
           <h4>
             {game.playerName}
-            <span className="heart">
-              {game.lives && game.lives.map((live) => {
-                return <FaHeart/>
-              })}
-            {/* <FaHeart/>
-            <FaHeart/>
-            <FaHeart/> */}
-            </span>
           </h4>
+          <span className="value">
+              {game.lives && game.lives.map((live) => {
+                return <FaHeart className="heart"/>
+              })}
+  
+            </span>
         </div>
       </div>
       <div className={alert.style}>{alert.message}</div>
@@ -134,14 +151,7 @@ const GameMenu = () => {
         {game.hiddenGuessWord  && game.hiddenGuessWord.map((letter) => {
           return <div className="word">{letter}</div>
         }) }
-        {/* <div className="word">C</div>
-        <div className="word">O</div>
-        <div className="word">M</div>
-        <div className="word">P</div>
-        <div className="word">A</div>
-        <div className="word">C</div>
-        <div className="word">T</div> */}
-
+        
       </div>
 
       <div className="guess_letters">
@@ -151,20 +161,10 @@ const GameMenu = () => {
               guess(arr);
             }}>{arr}</div>
           })}
-          {/* <div className="input">A</div>
-          <div className="input">E</div>
-          <div className="input">I</div>
-          <div className="input">O</div>
-          <div className="input">U</div> */}
+          
         </div>
 
-        {/* <div className="letters">
-          <div className="input">P</div>
-          <div className="input">C</div>
-          <div className="input">D</div>
-          <div className="input">M</div>
-          <div className="input">T</div>
-        </div> */}
+       
       </div>
     </div>
   );

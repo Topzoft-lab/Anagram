@@ -1,7 +1,7 @@
 import "./setting.css";
 import {FaArrowLeft,
 FaArrowRight} from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import GameContext from "../GameContext";
 import {ucWord} from "../../helperFunction";
@@ -10,9 +10,13 @@ const GameSettings = () => {
   const {setGame}= useContext(GameContext)
 
   const [name, setName] = useState("");
+  const history= useNavigate();
 
   const [level, setLevel] = useState("Easy");
   console.log(level);
+
+  const [playerInput, setPlayerInput] = useState({style:"player-name", message: ""});
+  setTimeout(() => setPlayerInput({style:"player-name", message: ""}),4000);
 
 
   return (
@@ -24,33 +28,18 @@ const GameSettings = () => {
 
       <h3 className="name">Player Name:</h3>
       <div className="player-input">
-        <input type="text" className="player-name" placeholder="Enter name..." onChange={(e)=>{
+        <input type="text" className={playerInput.style} placeholder="Enter name..." onChange={(e)=>{
           setName(ucWord(e.target.value));
         }}/>
+        <label htmlFor="text" className="label">{playerInput.message}</label>
       </div>
 
       <h3 className="name">Levels:</h3>
       <div className="radio-group">
-
-        {/* <input type="checkbox" className="radio-input" />
-        <label for="easy" className="radio-label">
-          Easy
-        </label>
-
-        <input type="checkbox" className="radio-input" />
-        <label for="hard" className="radio-label">
-          Hard
-        </label>
-
-        <input type="checkbox" className="radio-input" />
-        <label for="difficult" className="radio-label">
-          Difficult
-        </label> */}
-
         <input type="radio" name="rad" defaultChecked onChange={(e) => {
           setLevel("Easy")
         }}/>
-        <label htmlFor="asy" className="radio-label">Easy</label>
+        <label htmlFor="easy" className="radio-label">Easy</label>
 
         <input type="radio" name="rad" onChange={(e) => {
           setLevel("Hard")
@@ -65,17 +54,23 @@ const GameSettings = () => {
       </div>
       <div className="arrow">
       <Link to="/"><FaArrowLeft /></Link>
-      <Link to="/menu"><FaArrowRight onClick={(e) => {
-        setGame({
-          playerName: name,
-          lvl: level,
-          lives: [0, 0, 0],
-          word: [{easy:["name", "barn", "root", "ram", "doe", "sun", "tan", "rue", "sue", "come"],
-                  hard:["senior", "nobody", "intense","diverse","unknown", "implode", "spoilt", "injury"],
-                  difficult:[ "raining", "sugarcoat",  "impeccable", "reassurance", "oragutan", "compound"]}],
-          score: 0
-        })
-      }}/></Link>
+      < ><FaArrowRight onClick={(e) => {
+        if (name === "") {
+         setPlayerInput({style:"player-name-error", message: "*Fill in this field"})
+        } else {
+          setGame({
+            playerName: name,
+            lvl: level,
+            lives: [0, 0, 0],
+            word: [{easy:["name", "barn", "root", "ram", "doe", "sun", "tan", "rue", "sue", "come"],
+                    hard:["senior", "nobody", "intense","diverse","unknown", "implode", "spoilt", "injury"],
+                    difficult:[ "raining", "sugarcoat",  "impeccable", "reassurance", "orangutan", "compound"]}],
+            score: 0
+          });
+          history("/menu");
+        }
+        
+      }}/></>
 
       </div>
     </div>

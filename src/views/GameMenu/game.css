@@ -15,15 +15,23 @@
 .level {
   color: #393e46;  
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0;
+
 }
 
 .value {
-  color: #1c0c59;
+  color: #362391;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .heart {
   color: #cd0a0a;
   font-size: 14px;
+  outline: 1px solid #cd0a0a;
 }
 
 .main {
@@ -38,29 +46,37 @@
   background-color: #e7e7de;
   box-shadow: #303841 0px 5px 15px;
   border-radius: 5px;
-  padding: 25px 70px;
+  padding: 50px 85px;
 }
 
 .alert-none {
-  display: none;
-}
-
-.alert {
-  /* display: none; */
   text-align: center;
   font-size: 20px;
   font-weight: 700;
-  box-shadow: 0 1px 2px #393e46;
-  margin: 0 220px;
-  color: #393e46;
-  padding: 3px;
-  background-color: #f0e3c4;
+  height: 40px;
 }
+
+.alert-error {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  color: #cd0a0a;
+}
+
+.alert-success {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  color: #379956;
+}
+
 
 .guess-word {
   display: flex;
-  justify-content: space-between;
-  margin: 80px;
+  justify-content: center;
+  margin: 60px 0;
   border-radius: 5px;
   /* visibility: hidden; */
 }
@@ -71,28 +87,33 @@
   border: none;
   border-radius: 5px;
   padding: 10px 17px;
-  margin: 0px;
+  margin:0 5px;
   cursor: pointer;
   font-size: 32px;
   font-weight: 300;
   color: #f0e3c4;
   border: 1px solid #7a5d7e;
+  height: 35px;
+  /* width: 25px; */
 }
 
 .guess_letters {
+  display: flex;
+  justify-content: center;
   border-radius: 5px;
   box-shadow: 0px 2px 5px 1px #393e46;
   background-color: #7a5d7e;
   padding: 20px;
   margin-bottom: 15px;
+  min-width: 400px;
+  max-width: 700px;
 }
 
 .letters {
   display: flex;
-  justify-content: space-between;
-  /* background-color: red; */
-  /* width: 50%; */
-  /* margin: 5px 200px; */
+  justify-content: center;
+  flex-wrap: wrap;
+  /* width: 100%; */
 }
 
 .letters:focus {
@@ -110,6 +131,7 @@
   font-size: 27px;
   font-weight: 700;
   color: #5e366a;
+  /* width: 20%; */
 }
 
 .input:hover {
