@@ -53,8 +53,8 @@ const GameSettings = () => {
 
       </div>
       <div className="arrow">
-      <Link to="/"><FaArrowLeft /></Link>
-      < ><FaArrowRight onClick={(e) => {
+      <Link to="/" className="arr"><FaArrowLeft /></Link>
+      < ><FaArrowRight className="arr" onClick={(e) => {
         if (name === "") {
          setPlayerInput({style:"player-name-error", message: "*Fill in this field"})
         } else {
@@ -65,7 +65,7 @@ const GameSettings = () => {
             word: [{easy:["name", "barn", "root", "ram", "doe", "sun", "tan", "rue", "sue", "come"],
                     hard:["senior", "nobody", "intense","diverse","unknown", "implode", "spoilt", "injury"],
                     difficult:[ "raining", "sugarcoat",  "impeccable", "reassurance", "orangutan", "compound"]}],
-            score: 0
+            score: 1000
           });
           history("/menu");
         }

@@ -24,8 +24,11 @@ body {
 
 .setting {
   /* text-transform: uppercase; */
+  font-family: 'Poppins', sans-serif; 
+
   font-weight: 600;
   text-align: center;
+  /* color: #303841; */
   color: #393e46;
   font-size: 25px;
   margin-bottom: 40px;
@@ -34,9 +37,10 @@ body {
   box-shadow: .2px .5px 2px .5px #393e46;
 }
 .name {
-  color: #1c0c59;
+  color: #6f7777;
   font-size: 18px;
-  font-weight: 500;
+  /* font-weight: 500; */
+  /* font-family: 'Poppins', sans-serif;  */
 }
 
 .player-input {
@@ -45,22 +49,14 @@ body {
   border-bottom: 2px solid #d7d7d7;
   padding-bottom: 10px;
 }
-.player-name {
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  font-size: 15px;
-  text-align: left;
-  /* font-weight: 700; */
-  border-radius: 5px;
-  border: none;
-  /* border-bottom: 2px solid #856c8b; */
-  background-color: lightgray;
-}
+
 
 .player-name {
+  color: #393e46;
   padding: 10px 20px;
   margin-bottom: 10px;
   font-size: 15px;
+  font-weight: 700;
   text-align: left;
   border-radius: 5px;
   border: none;
@@ -68,6 +64,7 @@ body {
 }
 
 .player-name-error {
+  color: #393e46;
   padding: 10px 20px;
   margin-bottom: 10px;
   font-size: 15px;
@@ -75,7 +72,7 @@ body {
   border-radius: 5px;
   background-color: lightgray;
   outline: none;
-  border: 1px solid red;
+  border: 1px solid #dc2f2f;
 }
 
 .player-name:focus {
@@ -84,7 +81,7 @@ body {
 }
 
 .label {
-  color: red;
+  color: #dc2f2f;
   font-size: 12px;
 }
 
@@ -108,11 +105,16 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
-  /* text-align: right; */
-  /* margin-top: 20px; */
   font-size: 20px; 
-  color: #393e46;
   cursor: pointer; 
+}
+
+.arr {
+  color: #6b4897;
+}
+
+.arr:hover {
+  color: #dc2f2f;
 }
 
 .fa-gear {

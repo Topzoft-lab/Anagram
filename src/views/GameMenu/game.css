@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Barlow+Semi+Condensed&family=Fuzzy+Bubbles&family=Poppins:wght@600&family=Work+Sans:wght@700&display=swap');
+
+
 * {
   font-family: monospace;
 }
@@ -12,24 +15,59 @@
 }
 .scores,
 .player,
-.level {
-  color: #393e46;  
+.level,
+.top {
+  color: #393e46; 
   font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   line-height: 0;
+  font-family: 'Fuzzy Bubbles', cursive;
+
+}
+
+.lvl-counter {
+  margin-bottom: 5px;
+  color: #1d556f;
+  /* font-family: 'Fuzzy Bubbles', cursive; */
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 35px;
+}
+
+.lvl-counter-blink {
+  margin-bottom: 5px;
+  color: #cd0a0a;
+  /* font-family: 'Fuzzy Bubbles', cursive; */
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 35px;
+}
+
+.lvl-type {
+  font-size: 18px;
+  font-family: 'Fuzzy Bubbles', cursive;
+  /* color: #6e5773; */
 
 }
 
 .value {
-  color: #362391;
+  color: #379956;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .heart {
   color: #cd0a0a;
+  margin: 0 1px;
+  /* visibility: hidden; */
+  font-size: 14px;
+  outline: 1px solid #cd0a0a;
+}
+
+.heart-empty {
+  color: #fff;
+  margin: 0 2px;
+  /* visibility: hidden; */
   font-size: 14px;
   outline: 1px solid #cd0a0a;
 }
@@ -87,7 +125,7 @@
   border: none;
   border-radius: 5px;
   padding: 10px 17px;
-  margin:0 5px;
+  margin:0 3px;
   cursor: pointer;
   font-size: 32px;
   font-weight: 300;
@@ -126,7 +164,7 @@
   border: 1px solid #c7b198;
   border-radius: 5px;
   padding: 10px 15px;
-  margin: 10px;
+  margin: 8px;
   cursor: pointer;
   font-size: 27px;
   font-weight: 700;

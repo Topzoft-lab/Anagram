@@ -1,32 +1,60 @@
 import { useContext, useEffect, useState } from "react";
 import { FaArrowLeft, FaHeart} from "react-icons/fa";
 import { Link } from "react-router-dom";
+import PopupModal from "../../Components/popupModal";
 import { shuffle } from "../../helperFunction";
 import GameContext from "../GameContext";
 import "./game.css";
 
+let sadGif = require("../../assets/sad-gif.gif");
+let wellDoneGif = require("../../assets/well-done-emoji.gif");
+
+
 
 const GameMenu = () => {
   const {game,setGame} = useContext(GameContext);
+  const [counter, setCounter] = useState(60);
+  const [counterStyle, setCounterStyle] = useState("lvl-counter")
  
 
-  const [randLetters, setRandLetters] = useState([])
+  const [randLetters, setRandLetters] = useState([]);
 
+  const [openModal, setOpenModal] = useState(false);
+  const [openModal2, setOpenModal2] = useState(false);
+
+  const [heart, setHeart] = useState([]);
+
+  const [subMsg, setSubMsg] = useState("");
+  
+  const [score, setScore] = useState("");
 
   const [alert, setAlert] = useState({
       style : "alert-none",
       message: ""});
 
   setTimeout(()=>setAlert({style:"alert-none",message:""}),4000);
+
+  useEffect(() => {
+    counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
+    counter < 11 && setTimeout(() => setCounterStyle("lvl-counter-blink"), 500);
+
+    // counter === 0 && alert("timeout") 
+
+  }, [counter]);
+
+
   const processGame = () => {
     let word ;
     
     if(game.lvl === "Easy") {
       word = game.word[0].easy
+      setCounter(30);
     } else if(game.lvl === "Hard") {
       word = game.word[0].hard
+      setCounter(45);
     } else {
       word = game.word[0].difficult;
+      setCounter(60);
     }
 
     //Gets the index of the random word
@@ -103,6 +131,9 @@ const GameMenu = () => {
 
     } else {
       lives.pop();
+      let newHeart =heart;
+      newHeart.push(0)
+      setHeart(newHeart)
       setAlert({
         style: "alert-error",
         message: "Wrong guess. Try again!"
@@ -130,17 +161,21 @@ const GameMenu = () => {
           <span className="value"> {game.score} </span>
         </div>
         <div className="level">
-          <h4 className="top">
+        <div  className={counterStyle}> {counter}</div>
+          <h4 className="lvl-type">
             {game.lvl}
           </h4>
         </div>
         <div className="player">
-          <h4>
+          <h4 className="top">
             {game.playerName}
           </h4>
           <span className="value">
               {game.lives && game.lives.map((live) => {
                 return <FaHeart className="heart"/>
+              })}
+               {heart && heart.map((live) => {
+                return <FaHeart className="heart-empty"/>
               })}
   
             </span>
@@ -161,11 +196,13 @@ const GameMenu = () => {
               guess(arr);
             }}>{arr}</div>
           })}
-          
         </div>
-
-       
       </div>
+      <div onClick={() => setOpenModal(true)}>sad</div>
+      <div onClick={() => setOpenModal2(true)}>Happy</div>
+
+      <PopupModal isOpen={openModal} modalGif={sadGif} subMsg={subMsg} msg="Game Over" score={score} nextLabel="Try Again" nextAction={()=>console.log("click")}/>
+      <PopupModal isOpen={openModal2} modalGif={wellDoneGif} subMsg={subMsg} msg="Amazing!" score={score} nextLabel="Next" nextAction={()=>console.log("click")}/>
     </div>
   );
 };
