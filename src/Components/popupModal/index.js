@@ -46,7 +46,7 @@ const PopupModal = ({isOpen,modalGif,subMsg,msg,score,nextLabel,nextAction}) => 
           <div className='form'>
             <button className='button' onClick={()=>{
               setOpen(false);
-              navigate("./");              
+              navigate("/");              
               }}>Exit</button>
             <button className='button' onClick={nextAction}>{nextLabel}</button>
           </div>

@@ -4,6 +4,13 @@ body {
   font-family: 'Courier New', Courier, monospace;
 
 }
+
+.container {
+  background-color: #e7e7de;
+  box-shadow: #303841 0px 5px 15px;
+  border-radius: 5px;
+  padding: 25px 70px;
+}
 .main {
   display: flex;
   align-items: center;
@@ -37,10 +44,10 @@ body {
   box-shadow: .2px .5px 2px .5px #393e46;
 }
 .name {
-  color: #6f7777;
+  color: #323232;
   font-size: 18px;
-  /* font-weight: 500; */
-  /* font-family: 'Poppins', sans-serif;  */
+  font-family: monospace;
+  font-weight: 100;
 }
 
 .player-input {

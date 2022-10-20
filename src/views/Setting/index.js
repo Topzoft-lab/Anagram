@@ -13,10 +13,16 @@ const GameSettings = () => {
   const history= useNavigate();
 
   const [level, setLevel] = useState("Easy");
-  console.log(level);
+ 
 
   const [playerInput, setPlayerInput] = useState({style:"player-name", message: ""});
   setTimeout(() => setPlayerInput({style:"player-name", message: ""}),4000);
+
+  let words = [{easy:["name", "barn", "root", "ram", "doe", "sun", "tan", "rue", "sue", "come"],
+  hard:["senior", "nobody", "intense","diverse","unknown", "implode", "spoilt", "injury"],
+  difficult:[ "raining", "sugarcoat",  "impeccable", "reassurance", "orangutan", "compound"]}];
+
+
 
 
   return (
@@ -37,7 +43,8 @@ const GameSettings = () => {
       <h3 className="name">Levels:</h3>
       <div className="radio-group">
         <input type="radio" name="rad" defaultChecked onChange={(e) => {
-          setLevel("Easy")
+          
+          setLevel("Easy");
         }}/>
         <label htmlFor="easy" className="radio-label">Easy</label>
 
@@ -58,14 +65,17 @@ const GameSettings = () => {
         if (name === "") {
          setPlayerInput({style:"player-name-error", message: "*Fill in this field"})
         } else {
+          let word = [];
+          word = level === "Difficult"? words[0].difficult:[];
+          word = level === "Hard" ? words[0].hard:[];
+          word = level === "Easy" ? words[0].easy:[];
+
           setGame({
             playerName: name,
             lvl: level,
             lives: [0, 0, 0],
-            word: [{easy:["name", "barn", "root", "ram", "doe", "sun", "tan", "rue", "sue", "come"],
-                    hard:["senior", "nobody", "intense","diverse","unknown", "implode", "spoilt", "injury"],
-                    difficult:[ "raining", "sugarcoat",  "impeccable", "reassurance", "orangutan", "compound"]}],
-            score: 1000
+            word: word,
+            score: 0
           });
           history("/menu");
         }
