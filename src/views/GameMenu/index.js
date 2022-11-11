@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { FaArrowLeft, FaHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PopupModal from "../../Components/popupModal";
 import { shuffle } from "../../helperFunction";
 import GameContext from "../GameContext";
@@ -33,8 +33,8 @@ const GameMenu = () => {
   setTimeout(() => setAlert({ style: "alert-none", message: "" }), 4000);
 
   useEffect(() => {
-    const cTime = counter > 0 && counter != 60 && setTimeout(() => setCounter(counter - 1), 1000);
-    counter < 11 && setInterval(() => setCounterStyle("lvl-counter-blink"), 1000);
+    const cTime = counter > 0 && counter !== 60 && setTimeout(() => setCounter(counter - 1), 1000);
+    counter < 11 && setInterval(() => setCounterStyle("lvl-counter-blink"), 100);
 
     counter === 0 && timeOut("Time Out!!", cTime);
     heart.length >= 3 && timeOut("Out Of Lives", cTime);
@@ -82,6 +82,7 @@ const GameMenu = () => {
 
   const processGame = () => {
     let word = game.word;
+    console.log(word);
     setCounter(60);
     if (game.lvl === "Easy") {
       // word = game.word[0].easy
@@ -91,7 +92,7 @@ const GameMenu = () => {
       setCounter(45);
     } else {
       // word = game.word[0].difficult;
-      setCounter(60);
+      setCounter(59);
     }
 
     //Gets the index of the random word
@@ -174,12 +175,17 @@ const GameMenu = () => {
     setGame(newGame);
   };
 
+  let navigate = useNavigate();
+
+  const saveGame = () => {
+    localStorage.setItem("ongoingGame", JSON.stringify(game));
+    navigate("/");
+  };
+
   return (
     <div className="container">
       <div className="exit">
-        <Link to="/">
-          <FaArrowLeft />
-        </Link>
+        <FaArrowLeft onClick={(e) => saveGame()} />
       </div>
 
       <div className="header">

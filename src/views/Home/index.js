@@ -1,11 +1,26 @@
 import "./home.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GameContext from "../GameContext";
 import { useContext } from "react";
+import { useState } from "react";
 
 const Home = () => {
-  const {game}= useContext(GameContext);
-  
+  const { setGame } = useContext(GameContext);
+  const [continueStyle, setContinueStyle] = useState(() => {
+    if (localStorage.getItem("ongoingGame") === null) {
+      return "";
+    }
+    return "game-list";
+  });
+
+  let navigate = useNavigate();
+  const continueGame = () => {
+    let newGame = localStorage.getItem("ongoingGame");
+    console.log(newGame);
+    setGame(newGame);
+    navigate("/menu");
+  };
+
   return (
     <div className="container">
       <div className="logo">
@@ -21,10 +36,10 @@ const Home = () => {
           </Link>
         </li>
         <li className="innerList">
-          {" "}
-          <Link to="/menu" className="game-list">
+          <span className={continueStyle} onClick={continueGame}>
+            {" "}
             Continue
-          </Link>
+          </span>
         </li>
         <li className="innerList">
           {" "}
