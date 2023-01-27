@@ -1,3 +1,6 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
 .leader-board {
   background-color: #e7e7de;
   box-shadow: #303841 0px 5px 15px;
@@ -8,12 +11,14 @@
 }
 
 .board-header {
+  font-weight: 600;
+  text-align: center;
   color: #393e46;
-  border-radius: 5px;
-  padding: 20px;
-  font-size: 27px;
-  font-weight: 700;
-  box-shadow: 0px 2px 5px #393e46;
+  font-size: 25px;
+  margin-bottom: 40px;
+  border-radius: 3px;
+  padding: 10px;
+  box-shadow: .2px .5px 2px .5px #393e46;
 }
 
 .leader-detail {
