@@ -1,44 +1,95 @@
-.game-setting {
-  /* display: none; */
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+.container {
   background-color: #e7e7de;
   box-shadow: #303841 0px 5px 15px;
   border-radius: 5px;
-  padding: 25px 50px;
+  padding: 25px 70px;
+}
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(#5e366a, #a070a1);
+}
+
+.game-setting {
+  /* display: none; */
+  /* width: 60%; */
+  background-color: #e7e7de;
+  box-shadow: #303841 0px 5px 15px;
+  border-radius: 5px;
+  padding: 30px 55px;
   margin-right: 100px;
 }
 
 .setting {
+  /* text-transform: uppercase; */
+  font-family: 'Poppins', sans-serif; 
+
+  font-weight: 600;
   text-align: center;
+  /* color: #303841; */
   color: #393e46;
-  font-size: 23px;
+  font-size: 25px;
   margin-bottom: 40px;
   border-radius: 3px;
   padding: 10px;
-  box-shadow: 0px 2px 5px #393e46;
+  box-shadow: .2px .5px 2px .5px #393e46;
 }
 .name {
-  color: #856c8b;
+  color: #323232;
   font-size: 18px;
+  font-family: monospace;
+  font-weight: 100;
 }
+
 .player-input {
+  display: flex;
+  flex-direction: column;
   border-bottom: 2px solid #d7d7d7;
   padding-bottom: 10px;
 }
+
+
 .player-name {
-  padding: 15px;
+  color: #393e46;
+  padding: 10px 20px;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
+  text-align: left;
   border-radius: 5px;
   border: none;
-  border-bottom: 2px solid #856c8b;
-  background-color: #f6f6f6;
+  background-color: lightgray;
+}
+
+.player-name-error {
+  color: #393e46;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  text-align: left;
+  border-radius: 5px;
+  background-color: lightgray;
+  outline: none;
+  border: 1px solid #dc2f2f;
 }
 
 .player-name:focus {
-  color: #5e366a;
   outline: none;
-  border-bottom: 3px solid #524a79;
+  border: 1px solid #524a79;
+}
+
+.label {
+  color: #dc2f2f;
+  font-size: 12px;
 }
 
 .radio-group {
@@ -53,16 +104,24 @@
 
 .radio-label {
   cursor: pointer;
-  font-size: 13px;
-  font-weight: 700;
-  color: #492540;
+  font-size: 14px;
+  /* font-weight: 700; */
+  color: #393e46;
 }
 .arrow {
-  text-align: right;
-  margin-top: 20px;
-  font-size: 25px;
-  color: #393e46;
-  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  font-size: 20px; 
+  cursor: pointer; 
+}
+
+.arr {
+  color: #6b4897;
+}
+
+.arr:hover {
+  color: #dc2f2f;
 }
 
 .fa-gear {
@@ -71,12 +130,12 @@
   color: #b7b7b7;
 }
 
-input[type="checkbox"] {
+input[type="radio"] {
   appearance: none;
-  height: 16px;
-  width: 16px;
+  height: 14px;
+  width: 14px;
   background-color: #fafafa;
-  border-radius: 100%;
+  border-radius: 50%;
   cursor: pointer;
   outline: #524a79;
   display: flex;
@@ -84,28 +143,28 @@ input[type="checkbox"] {
   justify-content: space-between;
 }
 
-input[type="checkbox"]:after {
+input[type="radio"]:after {
   position: relative;
-  left: -11px;
-  bottom: 3px;
+  left: -7.5px;
+  bottom: 2px;
   font-family: monospace;
-  font-weight: 200;
-  font-size: 60px;
+  /* font-weight: 200; */
+  font-size: 45px;
   content: "\00B7";
   color: #524a79;
   display: none;
 }
 
-input[type="checkbox"]:hover {
+input[type="radio"]:hover {
   background-color: #f6f6f6;
   border: 1px solid #524a79;
 }
 
-input[type="checkbox"]:checked {
+input[type="radio"]:checked {
   border: #524a79;
   border: 2px solid #524a79;
 }
 
-input[type="checkbox"]:checked::after {
+input[type="radio"]:checked::after {
   display: block;
 }

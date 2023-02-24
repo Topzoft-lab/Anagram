@@ -52,6 +52,7 @@
 .anagram {
   text-align: center;
   font-size: 40px;
+  font-weight: 500;
   color: #393e46;
 }
 
@@ -68,11 +69,12 @@
   text-decoration: none;
   cursor: pointer;
   color: #492540;
+  padding: 6px;
 }
 
 .game-list:hover {
   box-shadow: 0 2px 5px #5e366a;
   background-color: #7a5d7e;
   color: #f0e3c4;
-  padding: 5px;
+  padding: 6px;
 }

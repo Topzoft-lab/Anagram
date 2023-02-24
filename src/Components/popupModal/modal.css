@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Barlow+Semi+Condensed&family=Fuzzy+Bubbles&family=Poppins:wght@600&family=Work+Sans:wght@700&display=swap');
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    margin-top: 15px;
+    padding: 8px;
+    font-size: 18px;
+    color: #393e46;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 1px 2px #d3a284;
+    background-color: #f0e3c4;
+    border: 1px solid #c7b198;
+    /* color: red; */
+}
+
+.button:hover {
+    outline: 1px solid #ffebb7;
+    background-color: #d3a284;
+    color: #393e46;
+    font-weight: 700;
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-gif {
+    max-width: 35%;
+    max-height: 35%;
+}
+
+.sub-msg {
+    text-align: center;
+    margin: 7px 0;
+    color: #ffebb7;
+}
+.msg {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    color: #cd0a0a;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.score-label {
+    font-size: 20px;
+    font-family: 'Barlow Semi Condensed', sans-serif;   
+    text-align: center;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.score {
+    font-size: 25px;
+    font-weight: 700;
+    color: #ffebb7;
+}
